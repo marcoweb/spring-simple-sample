@@ -21,7 +21,10 @@ public class SecurityConfig {
                 .requestMatchers("/user/**").authenticated()
                 .anyRequest().permitAll();
         http
-                .formLogin();
+                .formLogin()
+                .loginPage("/login").permitAll()
+                .and()
+                .logout().permitAll();
 
         return http.build();
     }
